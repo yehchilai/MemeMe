@@ -28,21 +28,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        // textField
-//        let memeTextAttributes = [
-//            NSStrokeColorAttributeName : UIColor.blackColor(),
-//            NSForegroundColorAttributeName : UIColor.whiteColor(),
-//            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-//            NSStrokeWidthAttributeName : 300.0
-//        ]
-        //textFieldTop.defaultTextAttributes = memeTextAttributes
-        //textFieldBottom.defaultTextAttributes = memeTextAttributes
         textFieldTop.textAlignment = NSTextAlignment.Center
         textFieldBottom.textAlignment = NSTextAlignment.Center
         textFieldTop.delegate = memeTextFieldDelegate
         textFieldBottom.delegate = memeTextFieldDelegate
         
-        
+        // get meme pictures
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        memes = appDelegate.memes
         
         subscribeToKeyboardNotifications()
         
