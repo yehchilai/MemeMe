@@ -71,6 +71,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func saveMemedImage(sender: AnyObject) {
         save()
+//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("TableViewController") as! MemeTableViewController
+//        self.presentViewController(vc, animated: true, completion: nil)
+        self.performSegueWithIdentifier("ToInitialView", sender: self)
+        
     }
     
     @IBAction func shareImage(sender: AnyObject) {
